@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| **Name** | _your full name_ |
-| **Nickname** | _your nickname_ |
-| **Student ID** | _6xxxxxxxx_ |
+| **Name** | _Ratchanon Chaoemsuphakhun_ |
+| **Nickname** | _I-Din_ |
+| **Student ID** | _692115036_ |
 | **Section** | 701 |
 
 ## How to run
@@ -18,8 +18,8 @@ Then open <http://localhost:3000> and <http://localhost:3000/api/me>.
 
 ## What I learned today
 
-_Write 2–3 sentences in your own words: what happens between typing a URL and seeing the page?_
+I've learn about how browser uses the URL to find the server and sends it an HTTP request,how the server processes the request and sends back a response and how the browser reads the response and displays the page.
 
 ## AI-use statement
 
-_Did you use an AI tool in this lab? If yes, which one and for what (e.g., "ChatGPT to explain a Git error message"). If no, write "No AI tools used."_
+Yes I use copilot to explain push command error and cmd and  powershell usage. also guides to fix the window's protection block.
