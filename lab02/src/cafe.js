@@ -37,7 +37,8 @@ export function availableIn(menu, category) {
 //   "Butterfly Pea Soda — 50 THB (sold out)"     ← when available is false
 // Hint: start with  const { name, price, available } = item;
 export function menuLine(item) {
-  // TODO
+  const { name, price, available } = item;
+  return `${name} — ${price} THB${available ? "" : " (sold out)"}`;
 }
 
 // Task 6 — spread
@@ -45,7 +46,10 @@ export function menuLine(item) {
 // The original item must not change.
 // withDiscount({ ..., price: 45 }, 10) → { ..., price: 41 }   (45 × 0.9 = 40.5 → 41)
 export function withDiscount(item, percent) {
-  // TODO
+  return {
+    ...item,
+    price: Math.round(item.price * (1 - percent / 100))
+  };
 }
 
 // Task 7 — reduce + find
