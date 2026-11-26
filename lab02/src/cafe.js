@@ -8,13 +8,13 @@
 // Return an array of item names, in menu order.
 // menuNames(menu) → ["Thai Iced Tea", "Americano", ...]
 export function menuNames(menu) {
-  // TODO
+  return menu.map(item => item.name);
 }
 
 // Task 2 — filter
 // Return only the items whose `available` is true.
 export function availableItems(menu) {
-  // TODO
+  return menu.filter((item)=>item.available);
 }
 
 // Task 3 — find
