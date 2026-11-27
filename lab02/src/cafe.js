@@ -57,25 +57,41 @@ export function withDiscount(item, percent) {
 // Each line costs  (price of that menu item) × qty.
 // orderTotal(orders[0], menu) → 160   (2 × 45 + 1 × 70)
 export function orderTotal(order, menu) {
-  // TODO
+  return order.items.reduce((total, line) => {
+  const menuItem = menu.find((m) => m.id === line.menuId);
+  return total + menuItem.price * line.qty;
+}, 0);
 }
 
 // Task 8 — map + reduce   (this is quiz Q10 again!)
 // Return the average order total, rounded to 2 decimal places.
 // Return 0 when there are no orders.
 export function averageOrder(orders, menu) {
-  // TODO
+  if (orders.length === 0) return 0;
+  const total = orders.reduce((sum, order) => sum + orderTotal(order, menu), 0);
+  return Math.round((total / orders.length) * 100) / 100;
 }
 
 // ───────────── Stretch (optional) ─────────────
 
 // Task 9 — return the NAME of the item with the highest total quantity sold.
 export function bestSeller(orders, menu) {
-  // TODO
+  const quantities = orders
+    .flatMap((order) => order.items)
+    .reduce((acc, line) => ({ ...acc, [line.menuId]: (acc[line.menuId] || 0) + line.qty }), {});
+  const bestId = Object.keys(quantities).reduce((a, b) => quantities[a] > quantities[b] ? a : b, null);
+  const bestItem = menu.find((item) => item.id === bestId);
+  return bestItem ? bestItem.name : undefined;
 }
 
 // Task 10 — group item names by category:
 // { drink: ["Thai Iced Tea", ...], food: [...], dessert: [...] }
 export function namesByCategory(menu) {
-  // TODO
+  return menu.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push(item.name);
+    return acc;
+  }, {});
 }
